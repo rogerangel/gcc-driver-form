@@ -1,0 +1,17 @@
+* {
+    /* background-color: ghostwhite; */
+    background-color: #f6f9ff;
+}
+
+.container {
+    width: fit-content;
+}
+
+#gcc-icon {
+    max-width: 100px; 
+    height: auto;
+    float: right;
+    position:relative;
+    margin-left: 4%;
+    text-align: center;
+}

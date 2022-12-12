@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <title>GCC Driver Upload</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="p-3">
+        <img
+          id="gcc-icon"
+          src="./assets/Gcc-logo.JPG"
+          class="rounded"
+          alt="..."
+        />
+        <h1 class="">New Driver Application</h1>
+      </div>
+      <div class="mt-3 accordion accordion-flush" id="accordionFlush">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-heading-di">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapse-di"
+              aria-expanded="false"
+              aria-controls="flush-collapse-di"
+              disabled
+            >
+              Driver's Information
+            </button>
+          </h2>
+          <div
+            id="flush-collapse-di"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-heading-di"
+            data-bs-parent="#accordionFlush"
+          >
+            <div class="accordion-body">
+              <div class="mt-3 mb-2 row">
+                <h5>Full name</h5>
+                <div class="col-sm">
+                  <input
+                    type="text"
+                    class="mb-2 form-control"
+                    id="fullname"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div class="col-sm">
+                  <input
+                    type="text"
+                    class="mb-2 form-control"
+                    id="fullname"
+                    placeholder="Middle Name"
+                    required
+                  />
+                </div>
+                <div class="col-sm">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullname"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="mb-3 row">
+                  <h5>Contact information</h5>
+                  <div class="col-sm">
+                    <label for="phonenumber" class="form-label"
+                      >Phone number</label
+                    >
+                    <input
+                      type="text"
+                      class="mb-2 form-control"
+                      id="phonenumber"
+                      placeholder="(718) 123-4567"
+                      required
+                    />
+                  </div>
+                  <div class="col-sm">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      placeholder="Example: user@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <h5>In which borough of NYC do you live in?</h5>
+                <select class="form-select" id="act" required>
+                  <option selected disabled>Click to choose</option>
+                  <option value="BK">Brooklyn</option>
+                  <option value="M">Manhattan</option>
+                  <option value="BX">The Bronx</option>
+                  <option value="Q">Queens</option>
+                  <option value="SI">Staten Island</option>
+                </select>
+              </div>
+              <div class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end">
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target=".multi-collapse"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo flush-collapse-sidl"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+              disabled
+            >
+              Upload Driver's Documents
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            class="accordion-collapse collapse multi-collapse"
+            aria-labelledby="flush-headingTwo"
+            data-bs-parent="#accordionFlush"
+          >
+            <div class="accordion-body">
+              <!-- start here -->
+              <div class="accordion accordion-flush" id="accordionFlush2">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-sidl">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-sidl"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-sidl"
+                    >
+                      State Issued Driver's License
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-sidl"
+                    class="accordion-collapse collapse multi-collapse"
+                    aria-labelledby="flush-heading-sidl"
+                    data-bs-parent="#accordionFlush2"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of your
+                          state driver's license</label
+                        >
+                        <img
+                          src="./assets/IMG_1476.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapse-tlc"
+                          aria-expanded="false"
+                          aria-controls="flush-collapse-tlc"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-tlc">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-tlc"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-tlc"
+                    >
+                      NYC TLC Hack License
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-tlc"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading-tlc"
+                    data-bs-parent="#accordionFlush2"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of your TLC
+                          License</label
+                        >
+                        <img
+                          src="./assets/IMG_1621.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <!-- button div -->
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapse-ss"
+                          aria-expanded="false"
+                          aria-controls="flush-collapse-ss"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-ss">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-ss"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-ss"
+                    >
+                      Social Security Document
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-ss"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading-ss"
+                    data-bs-parent="#accordionFlush2"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of your
+                          social security</label
+                        >
+                        <img
+                          src="./assets/IMG_1623.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target=".multi-collapse2"
+                          aria-expanded="false"
+                          aria-controls="flush-collapseThree flush-collapse-fh1"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end here -->
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+              disabled
+            >
+              Upload Vehicle's Documents
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            class="accordion-collapse collapse multi-collapse2"
+            aria-labelledby="flush-headingThree"
+            data-bs-parent="#accordionFlush"
+          >
+            <div class="accordion-body">
+              <!-- start here -->
+              <div class="accordion accordion-flush" id="accordionFlush3">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-fh1">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-fh1"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-fh1"
+                    >
+                      Insurance Card (FH1)
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-fh1"
+                    class="accordion-collapse collapse multi-collapse2"
+                    aria-labelledby="flush-heading-fh1"
+                    data-bs-parent="#accordionFlush3"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of your
+                          <i> FH1 </i> Insurance card</label
+                        >
+                        <img
+                          src="./assets/IMG_1621.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <!-- button div -->
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapse-col"
+                          aria-expanded="false"
+                          aria-controls="flush-collapse-col"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-col">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-col"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-col"
+                    >
+                      Certificate of Liability
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-col"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading-col"
+                    data-bs-parent="#accordionFlush3"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of the
+                          Certificate of Liability</label
+                        >
+                        <img
+                          src="./assets/IMG_1655.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <!-- button div -->
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapse-vr"
+                          aria-expanded="false"
+                          aria-controls="flush-collapse-vr"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-vr">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-vr"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-vr"
+                    >
+                      Vehicle Registration
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-vr"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading-vr"
+                    data-bs-parent="#accordionFlush3"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of your
+                          vehicle's registration</label
+                        >
+                        <img
+                          src="./assets/IMG_1620.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <!-- button div -->
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#flush-collapse-ins"
+                          aria-expanded="false"
+                          aria-controls="flush-collapse-ins"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-heading-ins">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse-ins"
+                      aria-expanded="false"
+                      aria-controls="flush-collapse-ins"
+                    >
+                      NYS or TLC Inspection
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse-ins"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading-ins"
+                    data-bs-parent="#accordionFlush3"
+                  >
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"
+                          >Please take, upload a photo or a pdf file of your
+                          vehicle's NYS or TLC inspection</label
+                        >
+                        <img
+                          src="./assets/IMG_1619.PNG"
+                          class="mb-3 img-thumbnail"
+                          alt="..."
+                        />
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <div
+                        class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
+                      >
+                        <button class="btn btn-success" type="button">
+                          Complete Application
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end here -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- button div -->
+      <div class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end">
+        <button
+          id="start-btn"
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse-di"
+          aria-expanded="false"
+          aria-controls="flush-collapse-di"
+          onclick="hideStartBtn()"
+        >
+          Start Application
+        </button>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function hideStartBtn() {
+        var x = document.getElementById("start-btn");
+        x.style.display = "none";
+      }
+      // document
+      //   .getElementById("flush-heading-di")
+      //   .addEventListener("click", () => {
+      //     document.getElementById("flush-heading-ins").focus(); // default: {preventScroll:false}
+      //   });
+    </script>
+  </body>
+</html>
