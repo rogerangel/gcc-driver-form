@@ -15,3 +15,31 @@
     margin-left: 4%;
     text-align: center;
 }
+
+@media (min-width:960px) { 
+    #img-1476 {
+    max-width: 40%;
+    height: auto;
+}
+#img-1619 {
+    max-width: 45%;
+    height: auto;
+}
+#img-1620 {
+    max-width: 45%;
+    height: auto;
+}
+#img-1621 {
+    max-width: 45%;
+    height: auto;
+}
+#img-1623 {
+    max-width: 45%;
+    height: auto;
+}
+#img-1655 {
+    max-width: 45%;
+    height: auto;
+}
+
+ }
