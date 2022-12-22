@@ -5,6 +5,7 @@
 
 .container {
     width: fit-content;
+    scroll-behavior: smooth;
 }
 
 #gcc-icon {
