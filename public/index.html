@@ -53,7 +53,7 @@
                   <input
                     type="text"
                     class="mb-2 form-control"
-                    id="fullname"
+                    id="f-name"
                     placeholder="First Name"
                     required
                   />
@@ -62,7 +62,7 @@
                   <input
                     type="text"
                     class="mb-2 form-control"
-                    id="fullname"
+                    id="m-name"
                     placeholder="Middle Name"
                     required
                   />
@@ -71,7 +71,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="fullname"
+                    id="l-name"
                     placeholder="Last Name"
                     required
                   />
@@ -106,7 +106,7 @@
               </div>
               <div class="mb-3">
                 <h5>In which borough of NYC do you live in?</h5>
-                <select class="form-select" id="act" required>
+                <select class="form-select" id="borough" required>
                   <option selected disabled>Click to choose</option>
                   <option value="BK">Brooklyn</option>
                   <option value="M">Manhattan</option>
@@ -181,10 +181,15 @@
                         <img
                           id="img-1476"
                           src="./assets/IMG_1476.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="sidl mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="sidl form-control"
+                          type="file"
+                          id="sidl-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <div
                         class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
@@ -198,6 +203,19 @@
                           aria-controls="flush-collapse-tlc"
                         >
                           Next
+                        </button>
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          disabled
+                          style="display: none"
+                        >
+                          <span
+                            class="spinner-grow spinner-grow-sm"
+                            role="status"
+                            aria-hidden="true"
+                          ></span>
+                          Uploading...
                         </button>
                       </div>
                     </div>
@@ -231,10 +249,15 @@
                         <img
                           id="img-1621"
                           src="./assets/IMG_1621.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="tlc mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="tlc form-control"
+                          type="file"
+                          id="tlc-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <!-- button div -->
                       <div
@@ -282,10 +305,15 @@
                         <img
                           id="img-1623"
                           src="./assets/IMG_1623.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="ss mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="ss form-control"
+                          type="file"
+                          id="ss-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <div
                         class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
@@ -361,10 +389,15 @@
                         <img
                           id="img-1621"
                           src="./assets/IMG_1621.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="fh1 mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="fh1 form-control"
+                          type="file"
+                          id="fh1-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <!-- button div -->
                       <div
@@ -412,10 +445,15 @@
                         <img
                           id="img-1655"
                           src="./assets/IMG_1655.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="coli mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="coli form-control"
+                          type="file"
+                          id="col-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <!-- button div -->
                       <div
@@ -463,10 +501,15 @@
                         <img
                           id="img-1620"
                           src="./assets/IMG_1620.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="vin mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="vin form-control"
+                          type="file"
+                          id="vr-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <!-- button div -->
                       <div
@@ -514,15 +557,24 @@
                         <img
                           id="img-1619"
                           src="./assets/IMG_1619.PNG"
-                          class="mb-3 img-thumbnail"
+                          class="ins mb-3 img-thumbnail"
                           alt="..."
                         />
-                        <input class="form-control" type="file" id="formFile" />
+                        <input
+                          class="ins form-control"
+                          type="file"
+                          id="ins-file"
+                          accept=".jpg, .jpeg, .png, .pdf"
+                        />
                       </div>
                       <div
                         class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
                       >
-                        <button class="btn btn-success" type="button">
+                        <button
+                          id="complete-btn"
+                          class="btn btn-success"
+                          type="button"
+                        >
                           Complete Application
                         </button>
                       </div>
@@ -534,21 +586,21 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- button div -->
-      <div class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end">
-        <button
-          id="start-btn"
-          class="btn btn-primary"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapse-di"
-          aria-expanded="false"
-          aria-controls="flush-collapse-di"
-          onclick="hideStartBtn()"
-        >
-          Start Application
-        </button>
+        <!-- button div -->
+        <div class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end">
+          <button
+            id="start-btn"
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapse-di"
+            aria-expanded="false"
+            aria-controls="flush-collapse-di"
+            onclick="hideStartBtn()"
+          >
+            Start Application
+          </button>
+        </div>
       </div>
     </div>
     <script
@@ -578,5 +630,6 @@
       //   document.getElementById(id).scrollIntoView();
       // }
     </script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
