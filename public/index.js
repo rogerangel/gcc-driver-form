@@ -3,7 +3,7 @@ import { compressImage, fileToDataUri, fileObj } from "./compressIMG.js";
 const transmit = document.getElementById("complete-btn");
 
 const url =
-  "https://script.google.com/macros/s/AKfycbx_JctefKSxTl4t8lhTaItk9YXFD0Wc_CH26pbfdf01DozgE3mxotoc1cEW09i2B_Oimg/exec";
+  "https://script.google.com/macros/s/AKfycbwEWWQxLLPl4qxowWmuqfN-w4HA_HyR96jQjPbrSjtoA2X7SwYN1gxBt6f1pyYFNH3y/exec";
 
 const formInJson = () => {
   const obj = {
