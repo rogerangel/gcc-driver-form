@@ -38,7 +38,7 @@ list.forEach((c) => {
         input_name: e.target.classList[elClIx],
         placeholder_id: `img.${e.target.classList[elClIx]}`,
       };
-      compressImage(id, tmpImg, 0.1, 1);
+      compressImage(id, tmpImg, 0.5, 1);
     });
 
     return false;
