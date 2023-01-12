@@ -45,12 +45,12 @@ list.forEach((c) => {
   });
 });
 
-const initForm = () => {
+const initForm = async () => {
   try {
     const data = formInJson();
     const json = JSON.stringify(data);
 
-    fetch(url, {
+    const send = await fetch(url, {
       method: "POST",
       mode: "no-cors",
       cache: "no-cache",
@@ -61,10 +61,11 @@ const initForm = () => {
       body: json,
     });
 
+    const response = `${send.ok} / ${send.status}`;
     alert(
       "Application has been submitted! We will contact you soon. Thank you!"
     );
-    console.log(json);
+    console.log(response);
   } catch (err) {
     console.dir();
     console.log(err);
