@@ -69,7 +69,7 @@ const initForm = () => {
     console.dir();
     console.log(err);
   }
-  location.reload();
+  // location.reload();
 };
 
 transmit.addEventListener("click", initForm);
