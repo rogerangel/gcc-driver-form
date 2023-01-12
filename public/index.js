@@ -50,7 +50,7 @@ const initForm = async () => {
     const data = formInJson();
     const json = JSON.stringify(data);
 
-    const send = await fetch(url, {
+    await fetch(url, {
       method: "POST",
       mode: "no-cors",
       cache: "no-cache",
@@ -59,18 +59,16 @@ const initForm = async () => {
       },
       redirect: "follow",
       body: json,
-    });
+    }).then((res) => console.log(res));
 
-    const response = `${send.ok} / ${send.status}`;
     alert(
       "Application has been submitted! We will contact you soon. Thank you!"
     );
-    console.log(response);
   } catch (err) {
     console.dir();
     console.log(err);
   }
-  // location.reload();
+  location.reload();
 };
 
 transmit.addEventListener("click", initForm);
