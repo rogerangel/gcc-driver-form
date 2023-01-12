@@ -64,11 +64,11 @@ const initForm = () => {
     alert(
       "Application has been submitted! We will contact you soon. Thank you!"
     );
+    location.reload();
   } catch (err) {
     console.dir();
     console.log(err);
   }
-  location.reload();
 };
 
 transmit.addEventListener("click", initForm);
