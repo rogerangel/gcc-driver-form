@@ -19,7 +19,7 @@ const formInJson = () => {
   return obj;
 };
 
-const list = ["sidl", "tlc", "ss", "fh1", "coli", "vin", "ins"];
+const list = ["sidl", "tlc", "ss", "fh1", "coli", "vin", "dia", "ins"];
 
 list.forEach((c) => {
   const fileInput = document.querySelector(`input.${c}`);
