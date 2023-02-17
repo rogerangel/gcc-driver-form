@@ -65,8 +65,8 @@ list.forEach((c) => {
       const infID = formInJson().id;
       const obj = { id: infID, type: "Img", data: {} };
       obj.data[`${fileObj[0]}`] = fileObj[1];
-      // await initForm(obj);
-      console.log(obj);
+      await initForm(obj);
+      // console.log(obj);
     } else {
       const conf = document.querySelector(`#${c}-conf`);
       conf.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill text-warning" viewBox="0 0 16 16">
@@ -95,16 +95,16 @@ info.addEventListener("click", async (e) => {
   ).innerHTML = `${form["residence_borough"]}`;
 
   const obj = { type: "Info", data: form };
-  // await initForm(obj);
-  console.log(obj);
+  await initForm(obj);
+  // console.log(obj);
 });
 
 const transmit = document.getElementById("complete-btn");
 
 transmit.addEventListener("click", async () => {
   const obj = { type: "App", id: formInJson().id };
-  // await initForm(obj);
-  console.log(obj);
+  await initForm(obj);
+  // console.log(obj);
 });
 
 const initForm = async (json) => {
