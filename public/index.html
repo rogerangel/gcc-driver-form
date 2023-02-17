@@ -25,7 +25,7 @@
         />
         <h1 class="">New Driver Application</h1>
       </div>
-      <div class="mt-3 accordion accordion-flush" id="accordionFlush">
+      <div class="accordion accordion-flush mt-3" id="accordionFlush">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-heading-di">
             <button
@@ -52,7 +52,7 @@
                 <div class="col-sm">
                   <input
                     type="text"
-                    class="mb-2 form-control"
+                    class="inf-txt mb-2 form-control"
                     id="f-name"
                     placeholder="First Name"
                     required
@@ -61,7 +61,7 @@
                 <div class="col-sm">
                   <input
                     type="text"
-                    class="mb-2 form-control"
+                    class="inf-txt mb-2 form-control"
                     id="m-name"
                     placeholder="Middle Name"
                     required
@@ -70,7 +70,7 @@
                 <div class="col-sm">
                   <input
                     type="text"
-                    class="form-control"
+                    class="inf-txt form-control"
                     id="l-name"
                     placeholder="Last Name"
                     required
@@ -86,9 +86,10 @@
                     >
                     <input
                       type="text"
-                      class="mb-2 form-control"
+                      class="inf-txt mb-2 form-control"
                       id="phonenumber"
                       placeholder="(718) 123-4567"
+                      maxlength="16"
                       required
                     />
                   </div>
@@ -96,7 +97,7 @@
                     <label for="email" class="form-label">Email</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="inf-txt form-control"
                       id="email"
                       placeholder="Example: user@email.com"
                       required
@@ -107,23 +108,16 @@
               <div class="mb-3">
                 <h5>In which borough of NYC do you live in?</h5>
                 <select class="form-select" id="borough" required>
-                  <option selected disabled>Click to choose</option>
-                  <option value="BK">Brooklyn</option>
-                  <option value="M">Manhattan</option>
-                  <option value="BX">The Bronx</option>
-                  <option value="Q">Queens</option>
-                  <option value="SI">Staten Island</option>
+                  <option hidden disabled selected>Click to choose</option>
+                  <option value="Brooklyn">Brooklyn</option>
+                  <option value="Manhattan">Manhattan</option>
+                  <option value="The Bronx">The Bronx</option>
+                  <option value="Queens">Queens</option>
+                  <option value="Staten Island">Staten Island</option>
                 </select>
               </div>
               <div class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end">
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target=".multi-collapse"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseTwo flush-collapse-sidl"
-                >
+                <button id="inf-btn" class="btn btn-primary" type="button">
                   Next
                 </button>
               </div>
@@ -162,6 +156,7 @@
                       data-bs-target="#flush-collapse-sidl"
                       aria-expanded="false"
                       aria-controls="flush-collapse-sidl"
+                      disabled
                     >
                       State Issued Driver's License
                     </button>
@@ -180,7 +175,7 @@
                         </p>
                         <img
                           id="img-1476"
-                          src="./assets/IMG_1476.PNG"
+                          src="./assets/IMG_1476.JPG"
                           class="sidl mb-3 img-thumbnail"
                           alt="..."
                         />
@@ -189,6 +184,7 @@
                           type="file"
                           id="sidl-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <div
@@ -206,11 +202,8 @@
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="sidl-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-tlc"
-                          aria-expanded="false"
-                          aria-controls="flush-collapse-tlc"
                         >
                           Next
                         </button>
@@ -227,6 +220,7 @@
                       data-bs-target="#flush-collapse-tlc"
                       aria-expanded="false"
                       aria-controls="flush-collapse-tlc"
+                      disabled
                     >
                       NYC TLC Hack License
                     </button>
@@ -254,6 +248,7 @@
                           type="file"
                           id="tlc-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <!-- button div -->
@@ -272,11 +267,8 @@
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="tlc-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-ss"
-                          aria-expanded="false"
-                          aria-controls="flush-collapse-ss"
                         >
                           Next
                         </button>
@@ -293,6 +285,7 @@
                       data-bs-target="#flush-collapse-ss"
                       aria-expanded="false"
                       aria-controls="flush-collapse-ss"
+                      disabled
                     >
                       Social Security Document
                     </button>
@@ -311,7 +304,7 @@
                         </p>
                         <img
                           id="img-1623"
-                          src="./assets/IMG_1623.PNG"
+                          src="./assets/IMG_1623.jpg"
                           class="ss mb-3 img-thumbnail"
                           alt="..."
                         />
@@ -320,6 +313,7 @@
                           type="file"
                           id="ss-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <div
@@ -337,11 +331,8 @@
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="ss-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target=".multi-collapse2"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseThree flush-collapse-fh1"
                         >
                           <!-- continue here -->
                           Next
@@ -387,6 +378,7 @@
                       data-bs-target="#flush-collapse-fh1"
                       aria-expanded="false"
                       aria-controls="flush-collapse-fh1"
+                      disabled
                     >
                       Insurance Card (FH1)
                     </button>
@@ -405,7 +397,7 @@
                         </p>
                         <img
                           id="img-1621"
-                          src="./assets/IMG_1621.PNG"
+                          src="./assets/IMG_1967.jpg"
                           class="fh1 mb-3 img-thumbnail"
                           alt="..."
                         />
@@ -414,6 +406,7 @@
                           type="file"
                           id="fh1-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <!-- button div -->
@@ -432,11 +425,8 @@
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="fh1-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-col"
-                          aria-expanded="false"
-                          aria-controls="flush-collapse-col"
                         >
                           Next
                         </button>
@@ -450,15 +440,16 @@
                       class="accordion-button collapsed"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapse-col"
+                      data-bs-target="#flush-collapse-coli"
                       aria-expanded="false"
-                      aria-controls="flush-collapse-col"
+                      aria-controls="flush-collapse-coli"
+                      disabled
                     >
                       Certificate of Liability
                     </button>
                   </h2>
                   <div
-                    id="flush-collapse-col"
+                    id="flush-collapse-coli"
                     class="accordion-collapse collapse"
                     aria-labelledby="flush-heading-col"
                     data-bs-parent="#accordionFlush3"
@@ -471,15 +462,16 @@
                         </p>
                         <img
                           id="img-1655"
-                          src="./assets/IMG_1655.PNG"
+                          src="./assets/IMG_1968.jpg"
                           class="coli mb-3 img-thumbnail"
                           alt="..."
                         />
                         <input
                           class="coli form-control"
                           type="file"
-                          id="col-file"
+                          id="coli-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <!-- button div -->
@@ -498,11 +490,8 @@
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="coli-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-vr"
-                          aria-expanded="false"
-                          aria-controls="flush-collapse-vr"
                         >
                           Next
                         </button>
@@ -516,15 +505,16 @@
                       class="accordion-button collapsed"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapse-vr"
+                      data-bs-target="#flush-collapse-vin"
                       aria-expanded="false"
-                      aria-controls="flush-collapse-vr"
+                      aria-controls="flush-collapse-vin"
+                      disabled
                     >
                       Vehicle Registration
                     </button>
                   </h2>
                   <div
-                    id="flush-collapse-vr"
+                    id="flush-collapse-vin"
                     class="accordion-collapse collapse"
                     aria-labelledby="flush-heading-vr"
                     data-bs-parent="#accordionFlush3"
@@ -544,8 +534,9 @@
                         <input
                           class="vin form-control"
                           type="file"
-                          id="vr-file"
+                          id="vin-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <!-- button div -->
@@ -556,19 +547,16 @@
                           class="btn btn-dark"
                           type="button"
                           data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-col"
+                          data-bs-target="#flush-collapse-coli"
                           aria-expanded="false"
-                          aria-controls="flush-collapse-col"
+                          aria-controls="flush-collapse-coli"
                         >
                           Back
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="vin-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-dia"
-                          aria-expanded="false"
-                          aria-controls="flush-collapse-dia"
                         >
                           Next
                         </button>
@@ -586,6 +574,7 @@
                       data-bs-target="#flush-collapse-dia"
                       aria-expanded="false"
                       aria-controls="flush-collapse-dia"
+                      disabled
                     >
                       TLC Vehicle Diamond Number
                     </button>
@@ -613,6 +602,7 @@
                           type="file"
                           id="dia-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <!-- button div -->
@@ -623,19 +613,16 @@
                           class="btn btn-dark"
                           type="button"
                           data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-vr"
+                          data-bs-target="#flush-collapse-vin"
                           aria-expanded="false"
-                          aria-controls="flush-collapse-vr"
+                          aria-controls="flush-collapse-vin"
                         >
                           Back
                         </button>
                         <button
                           class="btn btn-primary"
+                          id="dia-btn"
                           type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapse-ins"
-                          aria-expanded="false"
-                          aria-controls="flush-collapse-ins"
                         >
                           Next
                         </button>
@@ -653,6 +640,7 @@
                       data-bs-target="#flush-collapse-ins"
                       aria-expanded="false"
                       aria-controls="flush-collapse-ins"
+                      disabled
                     >
                       NYS or TLC Inspection
                     </button>
@@ -680,18 +668,12 @@
                           type="file"
                           id="ins-file"
                           accept=".jpg, .jpeg, .png, .pdf"
+                          required
                         />
                       </div>
                       <div
                         class="mt-3 d-grid gap-1 d-md-flex justify-content-md-end"
                       >
-                        <button
-                          id="complete-btn"
-                          class="btn btn-success"
-                          type="button"
-                        >
-                          Complete Application
-                        </button>
                         <button
                           class="btn btn-dark"
                           type="button"
@@ -701,6 +683,13 @@
                           aria-controls="flush-collapse-dia"
                         >
                           Back
+                        </button>
+                        <button
+                          class="btn btn-primary"
+                          id="ins-btn"
+                          type="button"
+                        >
+                          Next
                         </button>
                       </div>
                     </div>
@@ -721,10 +710,111 @@
             data-bs-target="#flush-collapse-di"
             aria-expanded="false"
             aria-controls="flush-collapse-di"
-            onclick="hideStartBtn()"
+            onclick="hideStartBtn(this.id)"
           >
             Start Application
           </button>
+        </div>
+      </div>
+      <div class="collapse card mt-4" id="conf-sec">
+        <h5 class="card-header">Review</h5>
+        <div class="card-body">
+          <h5 class="card-title">Your Info!</h5>
+          <p class="card-text">
+            Please review that your application is accurate and press complete
+            below.
+          </p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Your Name: <span id="conf-name"></span>
+            </li>
+            <li class="list-group-item">
+              Your Contact #: <span id="conf-cont"></span>
+            </li>
+            <li class="list-group-item">
+              Your Email: <span id="conf-email"></span>
+            </li>
+            <li class="list-group-item">
+              Residing Borough: <span id="conf-place"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="">
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">DMV License</div>
+                <span class="ms-auto" id="sidl-conf"> </span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">TLC License</div>
+                <span class="ms-auto" id="tlc-conf"></span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">Social Security</div>
+                <span class="ms-auto" id="ss-conf"></span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">Vehicle Insurance (FH1)</div>
+                <span class="ms-auto" id="fh1-conf"></span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">Vehicle Certificate Of Liabilty</div>
+                <span class="ms-auto" id="coli-conf"></span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">Vehicle Registration</div>
+                <span class="ms-auto" id="vin-conf"></span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">Vehicle TLC License</div>
+                <span class="ms-auto" id="dia-conf"></span>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+            >
+              <div class="ms-2 me-auto hstack gap-2">
+                <div class="fw-bold">Vehicle Inspection</div>
+                <span class="ms-auto" id="ins-conf"></span>
+              </div>
+            </li>
+          </ul>
+          <div class="card-footer">
+            <div
+              class="mt-3 pb-2 d-grid gap-1 d-md-flex justify-content-md-end"
+            >
+              <button id="complete-btn" class="btn btn-success" type="button">
+                Complete Application
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -747,9 +837,10 @@
       integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="index.js"></script>
     <script>
-      function hideStartBtn() {
-        var x = document.getElementById("start-btn");
+      function hideStartBtn(id) {
+        var x = document.getElementById(id);
         x.style.display = "none";
       }
       // document.getElementById("col-nxt-btn").addEventListener("click", () => {
@@ -759,6 +850,5 @@
       //   document.getElementById(id).scrollIntoView();
       // }
     </script>
-    <script type="module" src="index.js"></script>
   </body>
 </html>

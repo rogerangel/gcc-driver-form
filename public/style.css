@@ -1,11 +1,21 @@
-* {
+html {
     /* background-color: ghostwhite; */
     background-color: #f6f9ff;
 }
 
+
 .container {
+    background-color: #f6f9ff;
     width: fit-content;
     scroll-behavior: smooth;
+}
+
+.accordion-item {
+    --bs-accordion-bg: #f6f9ff;
+}
+
+.card-body {
+    background-color: #f6f9ff;
 }
 
 #gcc-icon {

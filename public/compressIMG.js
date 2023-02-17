@@ -1,4 +1,5 @@
-export const fileObj = {};
+// export const fileObj = { type: "Img", data: {} }; //add type for testing purposes
+export let fileObj = []; //add type for testing purposes
 
 let compressedImageBlob;
 
@@ -34,7 +35,8 @@ export function compressImage(id, imgToCompress, resizingFactor, quality) {
         output.src = URL.createObjectURL(compressedImageBlob);
         const dataURLOBJ = await fileToDataUri(blob);
         const data64 = dataURLOBJ.split(",")[1];
-        fileObj[`${id.input_name}_img`] = data64;
+        // fileObj.data[`${id.input_name}_img`] = data64;
+        fileObj = [`${id.input_name}_img`, data64];
         console.log(`${id.input_name} is uploaded`);
       }
     },
