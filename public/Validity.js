@@ -2,7 +2,7 @@ export default function validation(id, idlist, opt) {
   let elmnt, destEl, validate;
   if (id == "inf-btn") {
     const info = document.querySelectorAll(".inf-txt");
-    info.splice(1, 1);
+    //info.splice(1, 1);
     let arrValidEL = [];
     info.forEach((el) => {
       arrValidEL.push(el.validity.valid);
