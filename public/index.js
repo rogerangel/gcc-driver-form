@@ -61,17 +61,24 @@ list.forEach((c) => {
   const uploadBtn = document.querySelector(`#${c}-btn`);
 
   uploadBtn.addEventListener("click", async () => {
+    uploadBtn.setAttribute("disabled", "");
+    uploadBtn.innerHTML = loaders("loading");
     if (`${c}_img` == fileObj[0]) {
       const infID = formInJson().id;
       const obj = { id: infID, type: "Img", data: {} };
       obj.data[`${fileObj[0]}`] = fileObj[1];
+      //          ----------------- EDIT HERE ----------- ADD WAIT ICON ----------------
       await initForm(obj);
       // console.log(obj);
+      uploadBtn.removeAttribute("disabled");
+      uploadBtn.innerHTML = "Next";
     } else {
       const conf = document.querySelector(`#${c}-conf`);
       conf.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill text-warning" viewBox="0 0 16 16">
   <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
 </svg>`;
+      uploadBtn.removeAttribute("disabled");
+      uploadBtn.innerHTML = "Next";
     }
     validation(c, list);
     setTimeout(() => window.scrollBy(0, 150), 400);
@@ -81,7 +88,7 @@ list.forEach((c) => {
 const info = document.querySelector(`#inf-btn`);
 
 info.addEventListener("click", async (e) => {
-  validation(e.target.id, list, "flush-collapseTwo");
+  const val = validation(e.target.id, list, "flush-collapseTwo");
 
   const form = formInJson();
 
@@ -95,9 +102,25 @@ info.addEventListener("click", async (e) => {
   ).innerHTML = `${form["residence_borough"]}`;
 
   const obj = { type: "Info", data: form };
-  await initForm(obj);
-  // console.log(obj);
+  if (val) {
+    await initForm(obj);
+    // console.log(obj);
+  }
+  console.log(val);
 });
+
+const loaders = (stats) => {
+  const visualStatus = {
+    status: {
+      loading: [
+        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`,
+        `  Loading... Please Wait!`,
+      ].join(""),
+    },
+  };
+
+  return visualStatus.status[stats];
+};
 
 const transmit = document.getElementById("complete-btn");
 
