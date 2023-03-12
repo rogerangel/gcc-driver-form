@@ -1,4 +1,4 @@
-export default function validation(id, idlist, opt) {
+export function validation(id, idlist, opt) {
   let elmnt, destEl, validate;
   // const conf = document.querySelector(`#${c}-conf`);
   if (id == "inf-btn") {
@@ -56,7 +56,7 @@ function collapse(id) {
   collapse.toggle();
 }
 
-const icon = (r) => {
+export const icon = (r) => {
   const iconObj = {
     success: `<svg
                     xmlns="http://www.w3.org/2000/svg"

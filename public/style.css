@@ -1,61 +1,73 @@
 html {
-    /* background-color: ghostwhite; */
-    background-color: #f6f9ff;
+  /* background-color: ghostwhite; */
+  background-color: #f6f9ff;
 }
 
-
 .container {
-    background-color: #f6f9ff;
-    width: fit-content;
-    scroll-behavior: smooth;
+  background-color: #f6f9ff;
+  width: fit-content;
+  scroll-behavior: smooth;
 }
 
 .accordion-item {
-    --bs-accordion-bg: #f6f9ff;
+  --bs-accordion-bg: #f6f9ff;
 }
 
 .card-body {
-    background-color: #f6f9ff;
+  background-color: #f6f9ff;
+}
+
+.bd-callout-warning {
+  --bd-callout-color: #997404;
+  --bd-callout-bg: #fff3cd;
+  --bd-callout-border: #ffe69c;
+}
+
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: var(--bd-callout-color, inherit);
+  background-color: var(--bd-callout-bg, var(--bs-gray-100));
+  border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300));
 }
 
 #gcc-icon {
-    max-width: 100px; 
-    height: auto;
-    float: right;
-    position:relative;
-    margin-left: 4%;
-    text-align: center;
+  max-width: 100px;
+  height: auto;
+  float: right;
+  position: relative;
+  margin-left: 4%;
+  text-align: center;
 }
 
-@media (min-width:960px) { 
-    #img-1476 {
+@media (min-width: 960px) {
+  #img-1476 {
     max-width: 40%;
     height: auto;
-}
-#img-1619 {
+  }
+  #img-1619 {
     max-width: 45%;
     height: auto;
-}
-#img-1620 {
+  }
+  #img-1620 {
     max-width: 45%;
     height: auto;
-}
-#img-1621 {
+  }
+  #img-1621 {
     max-width: 45%;
     height: auto;
-}
-#img-1623 {
+  }
+  #img-1623 {
     max-width: 45%;
     height: auto;
-}
-#img-1655 {
+  }
+  #img-1655 {
     max-width: 45%;
     height: auto;
-}
-#veh-dia {
+  }
+  #veh-dia {
     max-width: 45%;
     height: auto;
-}
-
-
+  }
 }
