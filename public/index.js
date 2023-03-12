@@ -133,9 +133,9 @@ transmit.addEventListener("click", async () => {
     ].join(""),
   };
   const obj = { type: "App", id: formInJson().id };
-  initForm(obj);
-  // console.log(obj);
   document.querySelector("#conf-sec").innerHTML = card["page"];
+  await initForm(obj);
+  // console.log(obj);
 });
 
 const initForm = async (json) => {
