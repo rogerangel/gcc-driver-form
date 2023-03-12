@@ -1,9 +1,7 @@
 export function validation(id, idlist, opt) {
   let elmnt, destEl, validate;
-  // const conf = document.querySelector(`#${c}-conf`);
   if (id == "inf-btn") {
     const info = document.querySelectorAll(".inf-txt");
-    //info.splice(1, 1);
     let arrValidEL = [];
     info.forEach((el) => {
       arrValidEL.push(el.validity.valid);
@@ -46,7 +44,6 @@ export function validation(id, idlist, opt) {
   } else {
     console.log("no file uploaded!");
   }
-  // icon(validate);
   return validate;
 }
 
@@ -101,7 +98,6 @@ function fields(id) {
 function alertMsg(id, msg, type) {
   const getId = document.querySelector(`#${id}`);
   const elementField = getId.parentNode;
-  // const icon = icon(true);
 
   const wrapper = document.createElement("div");
   wrapper.innerHTML = [

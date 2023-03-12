@@ -140,9 +140,6 @@ transmit.addEventListener("click", async () => {
 
 const initForm = async (json) => {
   try {
-    // const data = formInJson();
-    // const json = JSON.stringify(data);
-
     await fetch(url, {
       method: "POST",
       mode: "no-cors",
@@ -153,9 +150,7 @@ const initForm = async (json) => {
       redirect: "follow",
       body: JSON.stringify(json),
     });
-    // console.log(json);
   } catch (err) {
-    console.dir();
     console.log(err);
   }
 };
