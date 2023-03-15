@@ -1,9 +1,7 @@
 import { compressImage, fileToDataUri, fileObj } from "./compressIMG.js";
 import { validation, icon } from "./Validity.js";
 import { enforceFormat, formatToPhone } from "./contactFormat.js";
-
-const url =
-  "https://script.google.com/macros/s/AKfycbwEWWQxLLPl4qxowWmuqfN-w4HA_HyR96jQjPbrSjtoA2X7SwYN1gxBt6f1pyYFNH3y/exec";
+import Gapp from "./controller.js";
 
 const formInJson = () => {
   const obj = {
@@ -57,7 +55,7 @@ list.forEach((c) => {
       const infID = formInJson().id;
       const obj = { id: infID, type: "Img", data: {} };
       obj.data[`${fileObj[0]}`] = fileObj[1];
-      await initForm(obj);
+      await Gapp.connect.send(obj);
       // console.log(obj);
       uploadBtn.removeAttribute("disabled");
       uploadBtn.innerHTML = "Next";
@@ -99,7 +97,7 @@ info.addEventListener("click", async (e) => {
       const ar = json[0].data;
       const findAr = ar.some((i) => i["AppID"] == form["id"]);
       if (!findAr) {
-        // await initForm(obj);
+        // await Gapp.connect.send(obj);
         console.log(obj);
       } else {
         const card = {
@@ -171,7 +169,7 @@ transmit.addEventListener("click", async () => {
   };
   const obj = { type: "App", id: formInJson().id };
   document.querySelector("#conf-sec").innerHTML = card["page"];
-  await initForm(obj);
+  await Gapp.connect.send(obj);
   // console.log(obj);
 });
 
