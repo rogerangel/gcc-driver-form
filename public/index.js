@@ -16,6 +16,7 @@ const formInJson = () => {
   };
 
   obj.id = btoa(`${obj.l_name}${obj.p_number}${obj.email}`);
+  obj.host = window.location.hostname;
 
   return obj;
 };
@@ -89,8 +90,44 @@ info.addEventListener("click", async (e) => {
 
   const obj = { type: "Info", data: form };
   if (val) {
-    await initForm(obj);
-    // console.log(obj);
+    try {
+      const init = await fetch(url, {
+        method: "GET",
+        redirect: "follow",
+      });
+      const json = JSON.parse(await init.text());
+      const ar = json[0].data;
+      const findAr = ar.some((i) => i["AppID"] == form["id"]);
+      if (!findAr) {
+        // await initForm(obj);
+        console.log(obj);
+      } else {
+        const card = {
+          page: [
+            `<div class="card mt-4">`,
+            `<div class="card-body">`,
+            `<h5 class="card-title">Notice</h5>`,
+            `<h6 class="card-subtitle mb-2 text-muted">${icon(
+              "danger"
+            )} Application in process!</h6>`,
+            `<p class="card-text">
+              Your application has already been submitted, a hiring manager will be contacting you shortly.
+            </p>`,
+            `</div>`,
+            `<div class="card-footer text-muted">`,
+            `<a href="tel:+1 (917) 309-7242" class="card-link link-secondary">Click to call us for any questions!</a>`,
+            `<br>`,
+            `<a href="mailto:cesar.nunez@gcctransportationllc.org" class="card-link link-secondary">Click to email us!</a>`,
+            `</div>`,
+            `</div>`,
+          ].join(""),
+        };
+        document.querySelector(`#accordionFlush`).innerHTML = card["page"];
+      }
+    } catch (error) {
+      console.log(error);
+      console.dir();
+    }
   }
   console.log(val);
 });
