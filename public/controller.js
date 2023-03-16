@@ -1,11 +1,11 @@
 const url =
   "https://script.google.com/macros/s/AKfycbwEWWQxLLPl4qxowWmuqfN-w4HA_HyR96jQjPbrSjtoA2X7SwYN1gxBt6f1pyYFNH3y/exec";
 
-export default Gapp = {
+const Gapp = {
   connect: {
     send: async (object) => {
       try {
-        return await fetch(url, {
+        await fetch(url, {
           method: "POST",
           mode: "no-cors",
           cache: "no-cache",
@@ -13,8 +13,9 @@ export default Gapp = {
             "Content-Type": "application/json",
           },
           redirect: "follow",
-          body: object,
+          body: JSON.stringify(object),
         });
+        return true;
       } catch (err) {
         console.log(err);
       }
@@ -33,3 +34,5 @@ export default Gapp = {
     },
   },
 };
+
+export default Gapp;

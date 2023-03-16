@@ -56,7 +56,7 @@ list.forEach((c) => {
       const obj = { id: infID, type: "Img", data: {} };
       obj.data[`${fileObj[0]}`] = fileObj[1];
       await Gapp.connect.send(obj);
-      // console.log(obj);
+      console.log(obj);
       uploadBtn.removeAttribute("disabled");
       uploadBtn.innerHTML = "Next";
     } else {
@@ -73,9 +73,48 @@ list.forEach((c) => {
 const info = document.querySelector(`#inf-btn`);
 
 info.addEventListener("click", async (e) => {
-  const val = validation(e.target.id, list, "flush-collapseTwo");
-
+  info.setAttribute("disabled", "");
+  info.innerHTML = loaders("loading");
   const form = formInJson();
+  validation(e.target.id, list, "flush-collapseTwo", async (val) => {
+    const obj = { type: "Info", data: form };
+    if (val) {
+      try {
+        const json = await Gapp.connect.receive();
+        const ar = json.data;
+        const findAr = ar.some((i) => i["AppID"] == form["id"]);
+        if (!findAr) {
+          await Gapp.connect.send(obj);
+          console.log(obj);
+        } else {
+          const card = {
+            page: [
+              `<div class="card mt-4">`,
+              `<div class="card-body">`,
+              `<h5 class="card-title">Notice</h5>`,
+              `<h6 class="card-subtitle mb-2 text-muted">${icon(
+                "danger"
+              )} Application in process!</h6>`,
+              `<p class="card-text">
+              Your application has already been submitted, a hiring manager will be contacting you shortly.
+            </p>`,
+              `</div>`,
+              `<div class="card-footer text-muted">`,
+              `<a href="tel:+1 (917) 309-7242" class="card-link link-secondary">Click to call us for any questions!</a>`,
+              `<br>`,
+              `<a href="mailto:cesar.nunez@gcctransportationllc.org" class="card-link link-secondary">Click to email us!</a>`,
+              `</div>`,
+              `</div>`,
+            ].join(""),
+          };
+          document.querySelector(`#accordionFlush`).innerHTML = card["page"];
+        }
+      } catch (error) {
+        console.log(error);
+        console.dir();
+      }
+    }
+  });
 
   document.querySelector(
     "#conf-name"
@@ -85,49 +124,6 @@ info.addEventListener("click", async (e) => {
   document.querySelector(
     "#conf-place"
   ).innerHTML = `${form["residence_borough"]}`;
-
-  const obj = { type: "Info", data: form };
-  if (val) {
-    try {
-      const init = await fetch(url, {
-        method: "GET",
-        redirect: "follow",
-      });
-      const json = JSON.parse(await init.text());
-      const ar = json[0].data;
-      const findAr = ar.some((i) => i["AppID"] == form["id"]);
-      if (!findAr) {
-        // await Gapp.connect.send(obj);
-        console.log(obj);
-      } else {
-        const card = {
-          page: [
-            `<div class="card mt-4">`,
-            `<div class="card-body">`,
-            `<h5 class="card-title">Notice</h5>`,
-            `<h6 class="card-subtitle mb-2 text-muted">${icon(
-              "danger"
-            )} Application in process!</h6>`,
-            `<p class="card-text">
-              Your application has already been submitted, a hiring manager will be contacting you shortly.
-            </p>`,
-            `</div>`,
-            `<div class="card-footer text-muted">`,
-            `<a href="tel:+1 (917) 309-7242" class="card-link link-secondary">Click to call us for any questions!</a>`,
-            `<br>`,
-            `<a href="mailto:cesar.nunez@gcctransportationllc.org" class="card-link link-secondary">Click to email us!</a>`,
-            `</div>`,
-            `</div>`,
-          ].join(""),
-        };
-        document.querySelector(`#accordionFlush`).innerHTML = card["page"];
-      }
-    } catch (error) {
-      console.log(error);
-      console.dir();
-    }
-  }
-  console.log(val);
 });
 
 const loaders = (stats) => {
@@ -170,25 +166,8 @@ transmit.addEventListener("click", async () => {
   const obj = { type: "App", id: formInJson().id };
   document.querySelector("#conf-sec").innerHTML = card["page"];
   await Gapp.connect.send(obj);
-  // console.log(obj);
+  console.log(obj);
 });
-
-const initForm = async (json) => {
-  try {
-    await fetch(url, {
-      method: "POST",
-      mode: "no-cors",
-      cache: "no-cache",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      body: JSON.stringify(json),
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 const inputElement = document.getElementById("phonenumber");
 inputElement.addEventListener("keydown", enforceFormat);

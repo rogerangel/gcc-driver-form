@@ -1,4 +1,4 @@
-export function validation(id, idlist, opt) {
+export async function validation(id, idlist, opt, callback) {
   let elmnt, destEl, validate;
   if (id == "inf-btn") {
     const info = document.querySelectorAll(".inf-txt");
@@ -30,6 +30,7 @@ export function validation(id, idlist, opt) {
 
   if (validate) {
     if (id == "inf-btn") {
+      await callback(validate);
       collapse(`#${opt}`);
       collapse(`#flush-collapse-${idlist[0]}`);
     } else if (idlist[destEl] == "fh1") {
@@ -44,13 +45,14 @@ export function validation(id, idlist, opt) {
   } else {
     console.log("no file uploaded!");
   }
-  return validate;
 }
 
 function collapse(id) {
   const element = document.querySelector(id);
-  const collapse = new bootstrap.Collapse(element, { toggle: false });
-  collapse.toggle();
+  if (element) {
+    const collapse = new bootstrap.Collapse(element, { toggle: false });
+    collapse.toggle();
+  }
 }
 
 export const icon = (r) => {
